@@ -1,5 +1,5 @@
 /*----------------------------------------------------------------
-  Simple Ruvii temperature/humidity decoder for v5 devices
+  Simple Ruuvi temperature/humidity decoder for v5 devices
 
   Uses Arduino framework, NimBLE library. Tested on ESP32.
 
