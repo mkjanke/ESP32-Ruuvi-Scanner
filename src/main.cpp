@@ -62,7 +62,7 @@ class MyAdvertisedDeviceCallbacks : public NimBLEAdvertisedDeviceCallbacks {
       }
 
     } else {
-      pBLEScan->erase(advertisedDevice->getAddress());
+      // pBLEScan->erase(advertisedDevice->getAddress());
     }
   }
 };
@@ -83,14 +83,10 @@ void setup() {
 }
 
 void loop() {
-  // If an error occurs that stops the scan, it will be restarted here.
   if (pBLEScan->isScanning() == false) {
-    // Start scan with: duration = 0 seconds(forever), no scan end callback, not a continuation of a previous scan.
-    pBLEScan->start(0, nullptr, false);
+    // Start scan with: duration = 30 seconds, not a continuation of a previous scan.
+    pBLEScan->start(30, false);
+    pBLEScan->clearResults();
   }
-  // Free memory from unused devices?
-  if (pBLEScan->getResults().getCount() > 10) {
-    pBLEScan->stop();
-  }
-  delay(2000);
+  delay(10000);
 }
